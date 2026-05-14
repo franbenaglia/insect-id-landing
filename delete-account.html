@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InsectID — Delete Account</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --green: #2d6a4f; --green-pale: #d8f3dc; --muted: #555; --bg: #f9fbf9; --red: #c0392b; --red-pale: #fdecea; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1b1b1b; line-height: 1.7; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #fff; border-bottom: 1px solid #e8f0e8; }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--green); text-decoration: none; }
+    .lang-btn { background: var(--green-pale); border: none; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: .85rem; font-weight: 600; color: var(--green); }
+    .content { max-width: 680px; margin: 3rem auto; padding: 0 1.5rem 4rem; }
+    h1 { font-size: 2rem; color: var(--red); margin-bottom: .5rem; }
+    .subtitle { color: var(--muted); font-size: .95rem; margin-bottom: 2.5rem; }
+    .method { background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,.06); margin-bottom: 1.5rem; }
+    .method-num { display: inline-block; background: var(--green); color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-size: .85rem; font-weight: 700; margin-right: .5rem; }
+    .method-num.coming { background: #aaa; }
+    h2 { font-size: 1.1rem; color: #1b1b1b; margin-bottom: .75rem; display: flex; align-items: center; gap: .4rem; }
+    p, li { color: #333; font-size: .95rem; margin-bottom: .5rem; }
+    ul { padding-left: 1.4rem; }
+    .email-box { background: var(--green-pale); border-radius: 10px; padding: 1rem 1.25rem; margin: 1rem 0; font-family: monospace; font-size: 1rem; color: var(--green); font-weight: 600; }
+    .tag-soon { display: inline-block; background: #fff3cd; color: #856404; font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 8px; margin-left: .4rem; vertical-align: middle; }
+    .warn { background: var(--red-pale); border-left: 4px solid var(--red); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1.5rem; font-size: .9rem; color: #7b241c; }
+    a { color: var(--green); }
+    footer { text-align: center; padding: 2rem 1rem; font-size: .85rem; color: var(--muted); background: #fff; border-top: 1px solid #e8f0e8; }
+    footer a { color: var(--green); text-decoration: none; margin: 0 .5rem; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="index.html">🪲 InsectID</a>
+  <button class="lang-btn" onclick="toggleLang()">🌐 Español</button>
+</nav>
+
+<!-- ENGLISH -->
+<div id="en">
+<div class="content">
+  <h1>Delete Your Account</h1>
+  <p class="subtitle">You can request deletion of your InsectID account and all associated data using one of the following methods.</p>
+
+  <div class="method">
+    <h2><span class="method-num">1</span> Send us an email</h2>
+    <p>Send a deletion request from the email address associated with your InsectID account to:</p>
+    <div class="email-box">translator.ai.context@gmail.com</div>
+    <p>Use the subject line: <strong>Account Deletion Request — InsectID</strong></p>
+    <p>We will process your request within <strong>7 business days</strong> and confirm deletion by email.</p>
+  </div>
+
+  <div class="method">
+    <h2><span class="method-num coming">2</span> Delete from the app <span class="tag-soon">COMING SOON</span></h2>
+    <p>We are working on an in-app account deletion option. Once available, you will be able to delete your account directly from <strong>Profile → Settings → Delete Account</strong>.</p>
+  </div>
+
+  <div class="warn">
+    <strong>⚠️ What gets deleted:</strong>
+    <ul style="margin-top:.5rem">
+      <li>Your account and login credentials</li>
+      <li>Usage data and identification counts</li>
+      <li>Subscription records (active subscriptions must be cancelled separately via Google Play)</li>
+    </ul>
+    <p style="margin-top:.5rem">Local identification history stored on your device is not affected — you can delete it manually from the app's History screen.</p>
+  </div>
+
+  <p style="margin-top:1.5rem; color:var(--muted); font-size:.9rem">
+    For questions about your data, see our <a href="privacy.html">Privacy Policy</a> or contact <a href="mailto:translator.ai.context@gmail.com">translator.ai.context@gmail.com</a>.
+  </p>
+</div>
+<footer>
+  <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a> · <a href="mailto:translator.ai.context@gmail.com">Contact</a>
+</footer>
+</div>
+
+<!-- ESPAÑOL -->
+<div id="es" class="hidden">
+<div class="content">
+  <h1>Eliminar tu cuenta</h1>
+  <p class="subtitle">Podés solicitar la eliminación de tu cuenta de InsectID y todos los datos asociados usando alguno de los siguientes métodos.</p>
+
+  <div class="method">
+    <h2><span class="method-num">1</span> Envianos un correo</h2>
+    <p>Enviá una solicitud de eliminación desde el correo electrónico asociado a tu cuenta de InsectID a:</p>
+    <div class="email-box">translator.ai.context@gmail.com</div>
+    <p>Usá el asunto: <strong>Solicitud de Eliminación de Cuenta — InsectID</strong></p>
+    <p>Procesaremos tu solicitud en un plazo de <strong>7 días hábiles</strong> y confirmaremos la eliminación por correo.</p>
+  </div>
+
+  <div class="method">
+    <h2><span class="method-num coming">2</span> Eliminar desde la app <span class="tag-soon">PRÓXIMAMENTE</span></h2>
+    <p>Estamos trabajando en una opción de eliminación de cuenta dentro de la app. Cuando esté disponible, podrás eliminar tu cuenta directamente desde <strong>Perfil → Configuración → Eliminar cuenta</strong>.</p>
+  </div>
+
+  <div class="warn">
+    <strong>⚠️ Qué se elimina:</strong>
+    <ul style="margin-top:.5rem">
+      <li>Tu cuenta y credenciales de acceso</li>
+      <li>Datos de uso y contadores de identificaciones</li>
+      <li>Registros de suscripción (las suscripciones activas deben cancelarse por separado en Google Play)</li>
+    </ul>
+    <p style="margin-top:.5rem">El historial local de identificaciones almacenado en tu dispositivo no se ve afectado — podés eliminarlo manualmente desde la pantalla de Historial en la app.</p>
+  </div>
+
+  <p style="margin-top:1.5rem; color:var(--muted); font-size:.9rem">
+    Para consultas sobre tus datos, consultá nuestra <a href="privacy.html">Política de Privacidad</a> o contactanos en <a href="mailto:translator.ai.context@gmail.com">translator.ai.context@gmail.com</a>.
+  </p>
+</div>
+<footer>
+  <a href="index.html">Inicio</a> · <a href="privacy.html">Política de Privacidad</a> · <a href="mailto:translator.ai.context@gmail.com">Contacto</a>
+</footer>
+</div>
+
+<script>
+  let lang = navigator.language.startsWith('es') ? 'es' : 'en';
+  function toggleLang() {
+    lang = lang === 'en' ? 'es' : 'en';
+    document.getElementById('en').classList.toggle('hidden', lang !== 'en');
+    document.getElementById('es').classList.toggle('hidden', lang !== 'es');
+    document.querySelector('.lang-btn').textContent = lang === 'en' ? '🌐 Español' : '🌐 English';
+  }
+  if (lang === 'es') toggleLang();
+</script>
+</body>
+</html>

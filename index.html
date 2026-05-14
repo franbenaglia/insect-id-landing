@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InsectID — AI Insect Identification</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #2d6a4f;
+      --green-light: #40916c;
+      --green-pale: #d8f3dc;
+      --text: #1b1b1b;
+      --muted: #555;
+      --bg: #f9fbf9;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #fff; border-bottom: 1px solid #e8f0e8; position: sticky; top: 0; z-index: 10; }
+    .logo { font-size: 1.25rem; font-weight: 700; color: var(--green); text-decoration: none; }
+    .lang-btn { background: var(--green-pale); border: none; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--green); }
+
+    .hero { text-align: center; padding: 5rem 1.5rem 4rem; background: linear-gradient(160deg, #fff 0%, var(--green-pale) 100%); }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); color: var(--green); margin-bottom: 1rem; }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 580px; margin: 0 auto 2rem; }
+    .badge { display: inline-block; background: var(--green); color: #fff; padding: 10px 28px; border-radius: 30px; font-size: 1rem; font-weight: 600; text-decoration: none; }
+    .badge:hover { background: var(--green-light); }
+
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; max-width: 960px; margin: 4rem auto; padding: 0 1.5rem; }
+    .card { background: #fff; border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+    .card .icon { font-size: 2rem; margin-bottom: .75rem; }
+    .card h3 { font-size: 1.05rem; color: var(--green); margin-bottom: .5rem; }
+    .card p { font-size: .92rem; color: var(--muted); }
+
+    .zones { background: #fff; padding: 4rem 1.5rem; text-align: center; }
+    .zones h2 { font-size: 1.7rem; color: var(--green); margin-bottom: .75rem; }
+    .zones p { color: var(--muted); max-width: 600px; margin: 0 auto 2rem; }
+    .zone-list { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; max-width: 700px; margin: 0 auto; }
+    .zone-tag { background: var(--green-pale); color: var(--green); padding: 5px 14px; border-radius: 20px; font-size: .85rem; font-weight: 600; }
+
+    .pricing { max-width: 700px; margin: 4rem auto; padding: 0 1.5rem; text-align: center; }
+    .pricing h2 { font-size: 1.7rem; color: var(--green); margin-bottom: .75rem; }
+    .pricing p { color: var(--muted); margin-bottom: 2rem; }
+    .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .plan { background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,.06); border: 2px solid transparent; }
+    .plan.featured { border-color: var(--green); }
+    .plan .badge-plan { display: inline-block; background: var(--green); color: #fff; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 10px; margin-bottom: .5rem; }
+    .plan h3 { font-size: 1.5rem; color: var(--green); }
+    .plan .price { font-size: 1rem; color: var(--muted); margin-bottom: .75rem; }
+    .plan ul { list-style: none; font-size: .9rem; color: var(--muted); text-align: left; }
+    .plan ul li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+
+    footer { text-align: center; padding: 2.5rem 1rem; font-size: .85rem; color: var(--muted); background: #fff; border-top: 1px solid #e8f0e8; }
+    footer a { color: var(--green); text-decoration: none; margin: 0 .5rem; }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">🪲 InsectID</a>
+  <button class="lang-btn" onclick="toggleLang()">🌐 Español</button>
+</nav>
+
+<!-- ENGLISH -->
+<div id="en">
+  <section class="hero">
+    <h1>Identify any insect<br>with a photo</h1>
+    <p>Point your camera at an insect and get an instant AI-powered identification. Over 150 species per region, covering multiple biomes worldwide.</p>
+    <a class="badge" href="https://play.google.com/store/apps/details?id=io.insectid.app">Download on Google Play</a>
+  </section>
+
+  <div class="features">
+    <div class="card"><div class="icon">📸</div><h3>Instant Identification</h3><p>Take a photo or pick from your gallery. Results in seconds.</p></div>
+    <div class="card"><div class="icon">🌍</div><h3>Multiple Biomes</h3><p>Models trained per region — Amazonia, North America, Europe, Australia, and more.</p></div>
+    <div class="card"><div class="icon">📖</div><h3>Identification History</h3><p>All your identifications saved locally. Review past results anytime.</p></div>
+    <div class="card"><div class="icon">🔒</div><h3>Privacy First</h3><p>Photos are not stored on our servers. Processing is fast and secure.</p></div>
+  </div>
+
+  <section class="zones">
+    <h2>Available Regions</h2>
+    <p>Each region has its own AI model trained specifically on local species.</p>
+    <div class="zone-list">
+      <span class="zone-tag">Amazonia</span>
+      <span class="zone-tag">Mata Atlântica</span>
+      <span class="zone-tag">Eastern North America</span>
+      <span class="zone-tag">Mediterranean</span>
+      <span class="zone-tag">Australia</span>
+      <span class="zone-tag">+ more coming</span>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <h2>Simple Pricing</h2>
+    <p>Start free. Upgrade when you need more.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="price">$0 / month</div>
+        <ul><li>10 identifications/month</li><li>All available regions</li><li>Local history</li></ul>
+      </div>
+      <div class="plan featured">
+        <div class="badge-plan">BEST VALUE</div>
+        <h3>Premium</h3>
+        <div class="price">$2.99/mo · $19.99/yr</div>
+        <ul><li>Unlimited identifications</li><li>All available regions</li><li>Full history</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="delete-account.html">Delete Account</a> ·
+    <a href="mailto:translator.ai.context@gmail.com">Contact</a>
+    <br><br>© 2026 InsectID. All rights reserved.
+  </footer>
+</div>
+
+<!-- ESPAÑOL -->
+<div id="es" class="hidden">
+  <section class="hero">
+    <h1>Identificá cualquier insecto<br>con una foto</h1>
+    <p>Apuntá tu cámara a un insecto y obtené una identificación instantánea con IA. Más de 150 especies por región, cubriendo múltiples biomas del mundo.</p>
+    <a class="badge" href="https://play.google.com/store/apps/details?id=io.insectid.app">Descargar en Google Play</a>
+  </section>
+
+  <div class="features">
+    <div class="card"><div class="icon">📸</div><h3>Identificación instantánea</h3><p>Sacá una foto o elegí de la galería. Resultados en segundos.</p></div>
+    <div class="card"><div class="icon">🌍</div><h3>Múltiples biomas</h3><p>Modelos entrenados por región — Amazonia, Norteamérica, Europa, Australia y más.</p></div>
+    <div class="card"><div class="icon">📖</div><h3>Historial de identificaciones</h3><p>Todas tus identificaciones guardadas localmente. Revisá resultados anteriores.</p></div>
+    <div class="card"><div class="icon">🔒</div><h3>Privacidad primero</h3><p>Las fotos no se almacenan en nuestros servidores. El procesamiento es rápido y seguro.</p></div>
+  </div>
+
+  <section class="zones">
+    <h2>Regiones disponibles</h2>
+    <p>Cada región tiene su propio modelo de IA entrenado con especies locales.</p>
+    <div class="zone-list">
+      <span class="zone-tag">Amazonia</span>
+      <span class="zone-tag">Mata Atlântica</span>
+      <span class="zone-tag">Este de Norteamérica</span>
+      <span class="zone-tag">Mediterráneo</span>
+      <span class="zone-tag">Australia</span>
+      <span class="zone-tag">+ más próximamente</span>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <h2>Precios simples</h2>
+    <p>Empezá gratis. Actualizá cuando necesites más.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Gratis</h3>
+        <div class="price">$0 / mes</div>
+        <ul><li>10 identificaciones/mes</li><li>Todas las regiones</li><li>Historial local</li></ul>
+      </div>
+      <div class="plan featured">
+        <div class="badge-plan">MEJOR VALOR</div>
+        <h3>Premium</h3>
+        <div class="price">$2.99/mes · $19.99/año</div>
+        <ul><li>Identificaciones ilimitadas</li><li>Todas las regiones</li><li>Historial completo</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="privacy.html">Política de Privacidad</a> ·
+    <a href="delete-account.html">Eliminar Cuenta</a> ·
+    <a href="mailto:translator.ai.context@gmail.com">Contacto</a>
+    <br><br>© 2026 InsectID. Todos los derechos reservados.
+  </footer>
+</div>
+
+<script>
+  let lang = navigator.language.startsWith('es') ? 'es' : 'en';
+  function toggleLang() {
+    lang = lang === 'en' ? 'es' : 'en';
+    document.getElementById('en').classList.toggle('hidden', lang !== 'en');
+    document.getElementById('es').classList.toggle('hidden', lang !== 'es');
+    document.querySelector('.lang-btn').textContent = lang === 'en' ? '🌐 Español' : '🌐 English';
+  }
+  if (lang === 'es') toggleLang();
+</script>
+</body>
+</html>
